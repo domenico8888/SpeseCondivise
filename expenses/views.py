@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .services import calculate_transactions
 from .models import Expense, Person
-from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import ExpenseForm
 
