@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<h1>
+💸 Dashboard
+</h1>
+
+
+<p class="text-muted">
+Situazione aggiornata delle spese
+</p>
+
+
+
+<div class="row mt-4">
+
+
+<div class="col-md-6">
+
+
+<div class="card shadow p-4">
+
+
+<h5>
+👥 Utenti
+</h5>
+
+
+<h2>
+{{people}}
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="col-md-6">
+
+
+<div class="card shadow p-4">
+
+
+<h5>
+🧾 Spese
+</h5>
+
+
+<h2>
+{{expenses}}
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<hr class="my-5">
+
+
+
+<h3>
+💰 Pagamenti da effettuare
+</h3>
+
+
+
+{% for t in transactions %}
+
+
+
+<div class="card shadow-sm mt-3 p-3">
+
+
+<strong>
+{{t.from.name}}
+</strong>
+
+deve dare
+
+<span class="text-danger">
+{{t.amount}} €
+</span>
+
+a
+
+<strong>
+{{t.to.name}}
+</strong>
+
+
+</div>
+
+
+
+{% empty %}
+
+
+<p>
+Nessun debito presente
+</p>
+
+
+{% endfor %}
+
+
+
+{% endblock %}

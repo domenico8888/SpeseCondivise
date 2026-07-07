@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<h1 class="mb-4">
+🧾 Spese
+</h1>
+
+
+<div class="card p-4 mb-4">
+
+
+<h4>
+Aggiungi spesa
+</h4>
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+{{ form.as_p }}
+
+
+<button class="btn btn-primary">
+
+Salva spesa
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+<div class="card p-4">
+
+
+<h4>
+Lista spese
+</h4>
+
+
+<table class="table">
+
+
+<tr>
+
+<th>
+Descrizione
+</th>
+
+<th>
+Importo
+</th>
+
+<th>
+Data
+</th>
+
+<th>
+Pagata da
+</th>
+
+
+</tr>
+
+
+{% for expense in expenses %}
+
+
+<tr>
+
+<td>
+{{ expense.description }}
+</td>
+
+
+<td>
+{{ expense.amount }} €
+</td>
+
+
+<td>
+{{ expense.date }}
+</td>
+
+
+<td>
+{{ expense.payer }}
+</td>
+
+
+</tr>
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="4">
+
+Nessuna spesa presente
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+</div>
+
+
+{% endblock %}
