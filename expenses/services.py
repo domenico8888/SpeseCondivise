@@ -1,4 +1,5 @@
 from .models import Person, Expense
+from decimal import Decimal
 
 
 def calculate_balances():
@@ -10,10 +11,10 @@ def calculate_balances():
 
     # dizionario dei saldi
 
-    balances = {}
-
-    for person in people:
-        balances[person] = 0
+    balances = {
+        person: Decimal("0")
+        for person in people
+    }
 
 
 
